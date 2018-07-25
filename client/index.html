@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>New Adventure</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>       
+        <script src="app.js" ></script>
+        <script src="indexController.js" ></script>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="components/about/aboutController.js" ></script>
+        <script src="components/poi/poiController.js"></script>
+        <script src="components/favoritePoi/favoritePoiController.js"></script>
+        <script src="components/home/homeController.js"></script>
+        <script src="components/register/registerController.js" ></script>
+        <script src="components/login/loginController.js"></script>
+        <script src="shared/tokenService.js"></script>
+        <script src="shared/showHideService.js"></script>
+        <script src="node_modules/dist/angular-local-storage.min.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script src="navscript.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+        <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+
+    </head>
+
+    <body ng-controller="indexController as indexController">
+        <div id="cssmenu">
+            <ul>
+                    <li class="active"><a href="#/">Home</a></li>
+                    <li ng-hide="notLogined"><a href="#/favorites"><span>Favorites</span></a></li>
+                    <li ng-hide="registered"><a href="#/register"><span>Register</span></a></li>
+                    <li ng-hide="logined"><a href="#/login"><span>Login</span></a></li>
+                    <li><a href="#/poi"><span></span>POI</span></a></li>
+                    <li><a href="#/about"><span>About</span></a></li>
+                    <li class="last">
+                        <button id="logOut" ng-click="log_out()" ng-if="userLogined()">log out</button>
+                    </li>
+                    <li class="last"> Hello {{user.user_name}} </li>
+                   
+            </ul>
+        </div>
+        
+        <div ng-view id="viewcss" ></div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<img class="homecss" src="./img/homebg.jpg" alt="home background">
+
+<div id="home">    
+    <!-- For every one -->
+    <div ng-repeat="point in points" id="homeStyle">
+        <br>
+        <center><b>{{point.POI_name}}</b></center>
+        <hr class="lineStyle">
+        <br>
+        <br>
+        {{point.description}}
+        <br>
+        <br>
+        <center><img class="homeImg" ng-src="{{point.POI_image}}" width= "450" height= "400" alt="" style="border-radius:30px"> </center>
+    </div>
+</div>

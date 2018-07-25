@@ -1,0 +1,100 @@
+
+<div id="wrap" ng-controller="poiController">
+        <img class=background id="POIbgcss" src="./img/poibg.jpg"style="opacity: 0.6" alt="form background">
+        <form>
+                <br>
+                <!-- Search Bar -->
+                <input type="text" class="poiSearch" name="search" img src="./img/searchicon.png" width="30px" height="30px" placeholder="Search..">
+                <div class="poiFilters">Filter by category: 
+                        <select name="category" ng-model="filter.category" ng-required="true">
+                                        <option value="" disabled="" selected="">Select Category</option>
+                                        <option ng-repeat="category in categories" value="{{category.category}}">{{category.category}}</option>
+                                        <option value="">All categories</option>
+                        </select>
+                </div>
+                <!-- Buttons of Count & Favs-->
+                <button type="text" ng-click="saveToDB()" ng-if="checkUser()">Save to Favorites</button>
+                <button type="text" ng-click="locationToFav()" ng-if="checkUser()">Favorites {{numOfFav}}</button>
+                <button ng-click="sortBy('rating')"> Sort by rating </button>
+                <span ng-show="propertyName == 'rating'"></span>
+                <br>
+                <br>
+        </form>
+        
+
+        
+        <!-- For user only -->
+        <aside class="POIdiv2" ng-if="checkUser()">
+                <div>
+                        <br>
+                        <h1 class="lastPOI"> Your points </h1>
+                        <br>
+                        <div class="gridContainer2">
+                                <h3 class="lastPOI"> Point That May Intrest You </h3> 
+                                <div ng-repeat="point in popularpPoints" class="POIStyle">
+                                        <center><b>{{point.POI_name}}</b></center>
+                                        <hr class="lineStyle">
+                                        <br>
+                                        {{point.description}}
+                                        <br>
+                                        <center><img class="POIimg" ng-src="{{point.POI_image}}" ng-click="showDesc(point)" alt="point img" style="border-radius:30px"> </center>
+                                </div>
+                                
+                                <h3 class="lastPOI"> Your Last Seen Points </h3>
+                                <div ng-repeat="point in lastpPoints" class="POIStyle">
+                                        <center><b>{{point.POI_name}}</b></center>
+                                        <hr class="lineStyle">
+                                        <br>
+                                        {{point.description}}
+                                        <br>
+                                        <center><img class="POIimg" ng-src="{{point.POI_image}}" alt="point img" style="border-radius:30px"> </center>
+                                </div>
+                        </div>
+                </div>
+        </aside>
+
+
+        <!-- for every one -->
+        <div ng-repeat="c in categories" id="POIdiv1" >
+                <br>
+                <h1 id="categoryPOI">{{c.category}}</h1>
+                <br>
+                <div class="gridContainer1">
+                        <div ng-repeat="point in generalPOI | filter:{category:c.category} | orderBy : propertyName : true | filter : filter" class="POIStyle"> 
+                                <center><b>{{point.POI_name}}</b></center>
+                                <hr class="lineStyle">
+                                <center><img class="POIimg" ng-src="{{point.POI_image}}" alt="point img" style="border-radius:30px"> </center>
+                                <br>
+                                <img class="heart" src="./img/emptyHeart.jpeg" ng-if="checkUser() && !checkPointInFavorites(point.POI_name)" ng-click="addDeleteToFav(point)"  style="width:30px; height:30px">
+                                <img class="heart" src="./img/fullHeart.png" ng-if="checkUser() && checkPointInFavorites(point.POI_name)" ng-click="addDeleteToFav(point)" style="width:30px; height:30px">
+                                rating: {{point.rating}}
+                                
+                                <!-- Modal Button -->
+                                <button id="mybtn" type="button" class="btn btn-info btn-lg" ng-click="getReviews(point)" data-toggle="modal" data-target="#poiModal{{$index}}">Description & Reviews</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="poiModal{{$index}}" role="dialog">
+                                        <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                        <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">{{selected.POI_name}}</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                                <p>{{selected.description}}</p>
+                                                                <hr class="lineStyle">
+                                                        
+                                                                <p ng-repeat="review in reviews | limitTo:3">
+                                                                Review: "{{review.review}}"  Rating: {{review.rating}} 
+                                                                </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        </div>               
+                                                </div>
+                                        </div>      
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>
+

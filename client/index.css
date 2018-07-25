@@ -1,0 +1,431 @@
+@import url(http://fonts.googleapis.com/css?family=Capriola);
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: Capriola, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+/* NAV BAR */
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  font-family: Capriola, Helvetica, sans-serif;
+}
+ #cssmenu {
+  width: 100%;
+  height: 59px;
+  padding: 0;
+  position: fixed;
+}
+#cssmenu.align-right {
+  float: right;
+}
+#cssmenu.align-right ul li {
+  float: right;
+  margin-right: 0;
+  margin-left: 4px;
+}
+#cssmenu.align-right ul li:first-child,
+#cssmenu.align-right ul li:first-child > a {
+  border-bottom-right-radius: 3px;
+}
+#cssmenu #bg-one,
+#cssmenu #bg-two,
+#cssmenu #bg-three,
+#cssmenu #bg-four {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#cssmenu #bg-one {
+  height: 10px;
+  background: #0f71ba;
+}
+
+#cssmenu #bg-two {
+  height: 59px;
+  z-index: 2;
+  background: url('img/bg.png');
+}
+#cssmenu #bg-three {
+  bottom: 4px;
+  height: 55px;
+  z-index: 3;
+  background: #222222;
+  background: -moz-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555555), color-stop(100%, #222222));
+  background: -webkit-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -o-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -ms-linear-gradient(top, #555555 0%, #222222 100%);
+  background: linear-gradient(to bottom, #555555 0%, #222222 100%);
+}
+#cssmenu #bg-four {
+  bottom: 4px;
+  height: 55px;
+  z-index: 4;
+  background: url('img/bg.png');
+}
+#cssmenu ul {
+  height: 59px;
+}
+#cssmenu ul li {
+  float: left;
+  margin-right: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  z-index: 5;
+}
+#cssmenu ul li a {
+  padding: 24px 30px 20px 30px;
+  margin-bottom: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #eeeeee;
+  font-size: 15px;
+  text-decoration: none;
+}
+#cssmenu ul li:first-child,
+#cssmenu ul li:first-child > a {
+  border-bottom-left-radius: 3px;
+}
+#cssmenu ul li:not(.last):hover,
+#cssmenu ul li.active,
+#cssmenu ul li a:focus{    
+  background: #0f71ba;
+  background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3fa4f0), color-stop(100%, #0f71ba));
+  background: -webkit-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -o-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -ms-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%);
+}
+#cssmenu ul li a:hover,
+#cssmenu ul li.active > a {
+  background: url('/img/bg.png');
+  color: #ffffff;
+}
+#cssmenu ul li.last{
+    float: right;
+    padding: 24px 30px 20px 30px;
+   color:  #3fa4f0;
+}
+
+#logOut{
+  border-radius: 8px;
+  background-color: #e7e7e7;
+}
+
+#viewcss{
+    padding-top:60px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* HOME PAGE */
+#home{
+  width:80%;
+  text-align: left;
+  margin: auto;
+}
+.homecss{
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: auto;
+  z-index: -100;
+  min-height: 100%;
+  min-width: 1040px;
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: 0.76;
+}
+#homeStyle{
+  background: #e0d6d6;
+  float:left;
+  width: 30%;
+  margin: 50px 10px auto 10px;
+  padding:5px;
+  border:1px solid #021a40;
+}
+.homeImg{
+  max-width: 100%;
+  max-width: 450px;
+  max-height: 400px;
+}
+
+/* ABOUT PAGE */
+#aboutStyle{
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url("./img/aboutbg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+#aboutinner{
+  width:80%;
+  text-align: left;
+  margin:auto;
+  padding-top: 10px;
+}
+
+/* REGISTER & LOGIN FORMS */
+#formcss input[type=text] , #formcss input[type=email], select, option{ 
+  width: 250px;
+  text-align: center;
+  font-size: 12;
+  -webkit-appearance: none;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+#formcss{
+  display: inline-block;
+	color: #0f71ba;
+	text-align: center;
+  font-size: 16px;
+  margin-left: 20px;
+  width: 35%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+#checkbox{
+  text-align: center;
+  font-size: 5;
+  color: rgb(90, 81, 81);
+  -webkit-appearance: none;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
+#formcss button{
+  background-color: rgba(202, 199, 199, 0.795);
+	border: rgb(255, 255, 255) solid 2pxs;
+	font-weight: bold;
+	font-size: 16px;
+	padding:10px 15px;
+	color:#0f71ba;
+	width: 25%;
+	border-radius: 10px;
+  margin: 10px;
+}
+#formcss button:hover:enable{
+	color: rgb(255, 255, 255);
+}
+#formcss button:active, #wrap button:active, .favoritesCss button:active, #favorites button:active{
+  color:#e6e6e6;
+  background-color:#0f71ba;
+}
+#formcss .help-block{
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  color:  rgb(199, 25, 25);
+}
+#formcss button:disabled{
+  background-color: rgba(163, 157, 157, 0.795);
+}
+ /* ragister and login BACKGROUND IMG */
+.background{
+  position: fixed;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: auto;
+  z-index: -100;
+  min-height: 100%;
+  min-width: 1040px;
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+.lineStyle { 
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/* POI PAGE */
+#POIbgcss{
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.poiSearch {
+  width: 25%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  margin-left: 10px;
+}
+.poiFilters {
+  width: 50%;
+  font-size: 16px;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 10px 12px 10px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.poiSearch:focus {
+  width: 65%;
+}
+#wrap{
+  width: 100%;
+}
+#wrap button{
+  float: right;
+  background-color: rgba(202, 199, 199, 0.795);
+	border: rgb(255, 255, 255) solid 2pxs;
+	font-weight: bold;
+	font-size: 12px;
+	padding:10px 15px;
+	color:#0f71ba;
+	width: 10%;
+	border-radius: 10px;
+  margin: 5px;
+}
+#wrap button:hover, .favoritesCss button:hover, #favorites button:hover{
+	color: rgb(255, 255, 255);
+}
+#POIdiv1{
+  float: left;
+  color: #0f71ba;
+  width: 70%;
+}
+.gridContainer1{
+  float: left;
+  margin: auto;
+  width: 90%;
+  display: grid;
+  grid-column-gap: 30px;
+  grid-row-gap: 10px; 
+  grid-template-columns: auto auto auto;
+  border:1px solid #021a40;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 15px;
+  background: #e7e7e7;
+}
+#categoryPOI{
+  width: 100%;
+  text-align: center;
+}
+.POIStyle{
+  color: black;
+  height: 50%;
+  margin: 10px;
+  margin-top: 0;
+  padding: 5px; 
+  padding-top: 0;
+  text-align: center;
+}
+.gridContainer1 #mybtn{
+ width: 100%;
+ float: left;
+}
+
+.POIdiv2{
+  float: right;
+  color: #0f71ba;
+  width: 30%;
+}
+.gridContainer2{
+  float: right;
+  width: 90%;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px; 
+  grid-template-columns: auto;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 15px;
+  background: #e7e7e7;
+  border:1px solid #021a40;
+}
+.lastPOI{
+  width: 100%;
+  text-align: center;
+}
+
+/* Favorites */
+.favoritesCss{
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+#favorites {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+.favoritesCss button, #favorites button{
+  background-color: rgba(202, 199, 199, 0.795);
+	border: rgb(255, 255, 255) solid 2pxs;
+	font-weight: bold;
+	font-size: 12px;
+	padding:10px 15px;
+	color:#0f71ba;
+	width: 20%;
+	border-radius: 10px;
+  margin: 5px;
+}
+
+/* Map */
+#map-leaflet{
+  width: 100%;
+  height: 100%;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 600px) {
+  #POIstyleG { 
+    display: block;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+

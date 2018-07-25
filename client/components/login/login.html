@@ -1,0 +1,58 @@
+<body class="formbody">
+    <img class=background src="./img/loginbg.jpg" alt="form background">
+    <center><div id=formcss>
+     
+        <form name="loginForm" ng-submit="submitForm(loginForm.$valid)" novalidate>  
+            <!-- User Name -->
+            <label>User Name:<br></label>
+            <input type="text" name="user_name" ng-model="user.user_name" placeholder="Please enter a user name" minlength="3" maxlength="8" ng-required="true" ng-pattern="/^[a-zA-Z]*$/">
+            <p ng-show="loginForm.user_name.$invalid && loginForm.user_name.$touched" class="help-block">required field 3-8 letters only</p>
+            <br>
+
+            <!-- Password -->
+            <label>Password:<br></label>
+            <input type="text" name="password" ng-model="user.password" placeholder="Please enter your password" ng-pattern="/^-?[0-9][^\.]*$/" minlength="5" maxlength="10" ng-required="true"> 
+            <p ng-show="loginForm.password.$invalid && loginForm.password.$touched" class="help-block">required field 5-10 numbers only</p>
+            <br>
+            <!-- Submit Button -->
+            <button type="submit" ng-disabled="loginForm.$invalid">Submit</button>
+            <br>
+        </form>
+
+        <!-- Forget Password link -->
+
+        <a href="" style="font-size:12px" ng-click="forg1=true">Forget Password?</a>
+        <div ng-show="forg1">
+            
+            <input type="text" name="user_name" ng-model="forget.user_name" placeholder="Please enter a user name" minlength="3" maxlength="8" ng-required="true" ng-pattern="/^[a-zA-Z]*$/">
+            <p ng-show="forget.user_name.$invalid && forget.user_name.$touched" class="help-block">required field 3-8 letters only</p>
+            <!-- Modal Button -->
+            <button id="mybtn" type="button" class="btn btn-info btn-lg" ng-click="forget1(forget.user_name)" data-toggle="modal" data-target="#loginModal{{$index}}">Submit</button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="loginModal{{$index}}" role="dialog" ng-if="forg2">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Recovery Password</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please answer the question:<br> {{questForget}}</p>
+                        <input type="text" name="answer" ng-model="forget.answer" placeholder="please enter an answer" ng-required="true">
+                        <p ng-show="forget.answer.$invalid && forget.answer.$touched" class="help-block">required field</p>
+                        <hr class="lineStyle">
+                        <p>Please enter your email: </p>
+                        <input type="email" name="email" ng-model="forget.email" placeholder="please enter your email" ng-required="true">   
+                        <p ng-show="forget.email.$invalid && forget.email.$touched" class="help-block">required field</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button ng-click="forget2()" type="button" data-dismiss="modal" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div></center>
+</body>
